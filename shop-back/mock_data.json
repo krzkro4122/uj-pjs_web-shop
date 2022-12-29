@@ -1,0 +1,18 @@
+{
+    "goods": [
+        {
+            "name": "TV",
+            "cost": 999,
+            "group": "Electronics",
+            "quantity": 100,
+            "thumbnail": "https://aws-obg-image-lb-2.tcl.com/content/dam/brandsite/region/maylaysia/products/tvs/p-series/p615/product/EM_55P615_front_global.png"
+        },
+        {
+            "name": "Soy milk",
+            "cost": 5,
+            "group": "Food",
+            "quantity": 20,
+            "thumbnail": "https://www.eatthis.com/wp-content/uploads/sites/4/2021/01/soy-milk.jpg?quality=82&strip=1&w=640"
+        }
+    ]
+}
