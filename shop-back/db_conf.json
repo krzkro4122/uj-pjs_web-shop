@@ -1,5 +1,5 @@
 {
-    "port" : "27017",
-    "collectionName": "shop",
+    "port" : "16969",
+    "collectionName": "shop-db",
     "populateWithExampleData": true
 }

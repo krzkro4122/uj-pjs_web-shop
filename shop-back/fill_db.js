@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
-import mockData from "../mock_data.json" assert { type: "json" };
-import dbo from "../db_conf.json" assert { type: "json" };
-import Goods from "../models/good.js";
+import mockData from "./mock_data.json" assert { type: "json" };
+import dbo from "./db_conf.json" assert { type: "json" };
+import Goods from "./models/good.js";
 
 mongoose.set('strictQuery', true);
 await mongoose.connect(
