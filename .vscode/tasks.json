@@ -14,7 +14,7 @@
         {
             "label": "static",
             "type": "shell",
-            "command": "cd shop-front && npm build",
+            "command": "cd shop-front && npm run build",
             "problemMatcher": [
                 "$eslint-stylish"
             ]
