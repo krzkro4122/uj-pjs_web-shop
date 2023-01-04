@@ -9,6 +9,7 @@ await mongoose.connect(
     `mongodb://127.0.0.1:${dbo.port}/${dbo.collectionName}`,
     { useNewUrlParser: true, useUnifiedTopology: true }
 );
+await Goods.deleteMany({});
 await Goods.insertMany(mockData.goods)
     .catch( (err) => {
         console.error(err);
