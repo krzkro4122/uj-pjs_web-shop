@@ -1,10 +1,10 @@
 import './App.css'
-import Header from './Header'
-import ShopPane from './ShopPane'
+import Header from './components/Header'
+import ShopPane from './components/ShopPane'
 
 function App() {
   return (
-    <div>
+    <div className=''>
       <Header/>
       <ShopPane/>
     </div>

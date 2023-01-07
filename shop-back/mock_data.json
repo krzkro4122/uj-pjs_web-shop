@@ -2,17 +2,45 @@
     "goods": [
         {
             "name": "TV",
-            "cost": 999,
+            "cost": 999.99,
             "group": "Electronics",
-            "quantity": 100,
+            "quantity": 30,
             "thumbnail": "https://aws-obg-image-lb-2.tcl.com/content/dam/brandsite/region/maylaysia/products/tvs/p-series/p615/product/EM_55P615_front_global.png"
         },
         {
             "name": "Soy milk",
-            "cost": 5,
+            "cost": 4.99,
             "group": "Food",
-            "quantity": 20,
+            "quantity": 100,
             "thumbnail": "https://www.eatthis.com/wp-content/uploads/sites/4/2021/01/soy-milk.jpg?quality=82&strip=1&w=640"
+        },
+        {
+            "name": "Sushi",
+            "cost": 29.99,
+            "group": "Food",
+            "quantity": 50,
+            "thumbnail": "https://www.wplywaryba.pl/wp-content/uploads/2020/12/Domowe-sushi.jpg"
+        },
+        {
+            "name": "Drone",
+            "cost": 699.99,
+            "group": "Electronics",
+            "quantity": 10,
+            "thumbnail": "https://image.ceneostatic.pl/data/article_picture/75/60/4e26-fddc-4638-b8e2-fe10ed79f3ef_large.jpg"
+        },
+        {
+            "name": "The entirety of Washington DC",
+            "cost": 99999999999.99,
+            "group": "Land",
+            "quantity": 1,
+            "thumbnail": "https://d.newsweek.com/en/full/1748302/dc.jpg?w=1600&h=1200&q=88&f=6009121f6320b8f52029e73e22d3ce00"
+        },
+        {
+            "name": "Moon land",
+            "cost": 69.99,
+            "group": "Land",
+            "quantity": 100000,
+            "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg"
         }
     ]
 }
