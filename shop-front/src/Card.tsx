@@ -2,7 +2,8 @@ import './Card.css'
 
 const Card = () => {
   return (
-    <div className="Card">
+    <div className="bg-red-600 w-10 ">
+        <img src="" alt="Item's thumbnail" />
         <p>LOL</p>
     </div>
   )

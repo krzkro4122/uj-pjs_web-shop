@@ -1,20 +1,12 @@
 import './App.css'
-import Card from './Card'
+import Header from './Header'
+import ShopPane from './ShopPane'
 
 function App() {
   return (
-    <div className="App">
-      <ul>
-        <li>
-          <Card />
-        </li>
-        <li>
-          <Card />
-        </li>
-        <li>
-          <Card />
-        </li>
-      </ul>
+    <div>
+      <Header/>
+      <ShopPane/>
     </div>
   )
 }
