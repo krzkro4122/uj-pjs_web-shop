@@ -8,7 +8,7 @@ export interface CardProps {
 }
 
 const Card = (props: CardProps) => {
-  const { addItem, inCart, updateItemQuantity } = useCart();
+  const { addItem, inCart, updateItemQuantity, getItem } = useCart();
 
   return (
     <div className="shadow-md w-80 p-1 m-2 float-left border-solid border border-black rounded">
@@ -26,7 +26,8 @@ const Card = (props: CardProps) => {
               props.good.price = props.good.cost;
 
               if (inCart(props.good.id)) {
-                props.good.quantity < props.good.stock ? () => {props.good.quantity += 1; updateItemQuantity(props.good.id, props.good.quantity + 1)} : alert("None left!")
+                const good: IGood = getItem(props.good.id);
+                good.quantity < props.good.stock ? updateItemQuantity(props.good.id, good.quantity + 1) : alert("None left!")
               } else {
                 const item = {
                   id: props.good.id,
@@ -41,7 +42,7 @@ const Card = (props: CardProps) => {
                 props.good.quantity = 1;
               }
             }
-          }><span className="border shadow-md rounded-md border-gray-400 p-1 hover:bg-gray-200 active:bg-white">Buy</span> for ${props.good.cost}</button>
+          }><span className="border shadow-md rounded-md border-gray-400 p-1 hover:bg-gray-100 active:bg-gray-300">Buy</span> for ${props.good.cost}</button>
           <span className='text-gray-500'>{props.good.stock} pcs.</span>
         </div>
     </div>

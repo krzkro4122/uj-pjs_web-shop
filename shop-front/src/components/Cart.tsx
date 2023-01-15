@@ -30,29 +30,31 @@ function Cart() {
         <h2>Total price: ${priceFormat(cartTotal)}</h2>
       </div>
 
-      <ul>
+      <ul className="pl-4">
         {items.map((item) => (
-          <li key={item.id} className='pl-4'>
-            <span className=" pr-2">
-              <button className="pr-1 pl-1 m-0.5 text-2xl rounded-md shadow-md border border-gray-400 hover:bg-gray-100 active:bg-gray-300 "
-                onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
-                >
-                ➖
-              </button>
-              <button className="text-2xl m-0.5 pl-1 pr-1 rounded-md border shadow-md border-gray-400 hover:bg-gray-100 active:bg-gray-300 "
-                onClick={() => item.quantity < item.stock ? updateItemQuantity(item.id, item.quantity + 1) : alert("None left!")}
-                >
-                ➕
-              </button>
-              <button className="text-2xl m-0.5 pl-1 pr-1 rounded-md border shadow-md border-gray-400 hover:bg-gray-100 active:bg-gray-300 "
-                onClick={() => removeItem(item.id)}
-                >
-                ✖️
+          <li key={item.id} className='shadow-sm flex justify-between pt-2'>
+            <span className="">
+              <span className=" pr-2">
+                <button className="text-2xl m-0.5 pl-1 pr-1 rounded-md border shadow-md border-gray-400 hover:bg-gray-100 active:bg-gray-300 "
+                  onClick={() => item.quantity < item.stock ? updateItemQuantity(item.id, item.quantity + 1) : alert("None left!")}
+                  >
+                  ➕
                 </button>
+                <button className="pr-1 pl-1 m-0.5 text-2xl rounded-md shadow-md border border-gray-400 hover:bg-gray-100 active:bg-gray-300 "
+                  onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
+                  >
+                  ➖
+                </button>
+              </span>
+              <span className="text-xl pl-0.5 pt-0.5">
+                {item.name} x{item.quantity} (${priceFormat(item.quantity * item.price)})
+              </span>
             </span>
-            <span className="text-xl pl-0.5 pt-0.5">
-              {item.name} x{item.quantity} (${priceFormat(item.quantity * item.price)})
-            </span>
+            <button className="text-md m-0.5 pl-1 pr-1 rounded-md border shadow-md border-gray-400 hover:bg-gray-100 active:bg-gray-300 "
+              onClick={() => removeItem(item.id)}
+              >
+              🗑
+            </button>
           </li>
         ))}
       </ul>
