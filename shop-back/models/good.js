@@ -9,7 +9,7 @@ const goodSchema = new Schema({
     },
     cost: Number,
     group: String,
-    quantity: Number,
+    stock: Number,
     thumbnail: String
 });
 const Good = model("Good", goodSchema);

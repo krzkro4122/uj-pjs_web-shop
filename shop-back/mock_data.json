@@ -4,43 +4,57 @@
             "name": "TV",
             "cost": 999.99,
             "group": "Electronics",
-            "quantity": 30,
+            "stock": 30,
             "thumbnail": "https://aws-obg-image-lb-2.tcl.com/content/dam/brandsite/region/maylaysia/products/tvs/p-series/p615/product/EM_55P615_front_global.png"
         },
         {
             "name": "Soy milk",
             "cost": 4.99,
             "group": "Food",
-            "quantity": 100,
+            "stock": 100,
             "thumbnail": "https://www.eatthis.com/wp-content/uploads/sites/4/2021/01/soy-milk.jpg?quality=82&strip=1&w=640"
         },
         {
             "name": "Sushi",
             "cost": 29.99,
             "group": "Food",
-            "quantity": 50,
+            "stock": 50,
             "thumbnail": "https://www.wplywaryba.pl/wp-content/uploads/2020/12/Domowe-sushi.jpg"
         },
         {
             "name": "Drone",
             "cost": 699.99,
             "group": "Electronics",
-            "quantity": 10,
+            "stock": 10,
             "thumbnail": "https://image.ceneostatic.pl/data/article_picture/75/60/4e26-fddc-4638-b8e2-fe10ed79f3ef_large.jpg"
         },
         {
             "name": "The entirety of Washington DC",
             "cost": 99999999999.99,
             "group": "Land",
-            "quantity": 1,
+            "stock": 1,
             "thumbnail": "https://d.newsweek.com/en/full/1748302/dc.jpg?w=1600&h=1200&q=88&f=6009121f6320b8f52029e73e22d3ce00"
         },
         {
             "name": "Moon land",
             "cost": 69.99,
             "group": "Land",
-            "quantity": 100000,
+            "stock": 100000,
             "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg"
+        },
+        {
+            "name": "DOGGY 😍😍😍",
+            "cost": 0.01,
+            "group": "Pet",
+            "stock": 1,
+            "thumbnail": "https://scontent.xx.fbcdn.net/v/t1.15752-9/320626606_862745341641334_5050075062406392678_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=aee45a&_nc_ohc=-OO_lI3AxiwAX8ynLp7&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdRz0STTk11CDWBlrLG4vGf5hOTnxJfVfdkcjgPzKEdqbQ&oe=63E36507"
+        },
+        {
+            "name": "OMG OMG OMG",
+            "cost": 4.20,
+            "group": "Pet",
+            "stock": 1,
+            "thumbnail": "https://scontent.xx.fbcdn.net/v/t1.15752-9/320382567_908021690562263_6170335186113161002_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=aee45a&_nc_ohc=SOkw1LJL0QQAX-WuxG0&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQ1sRLSyuKIA0PthbW6Yln7xe947aAQoovvOggQQPsOYw&oe=63CC4381"
         }
     ]
 }

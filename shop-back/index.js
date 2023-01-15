@@ -47,25 +47,25 @@ app.post('/goods/buy', (request, response) => {
     const goodId = details._id;
 
     // Check if you can even buy that many
-    let quantity = 0;
+    let stock = 0;
     Good.findOne({_id: ObjectId(goodId)}, (err, result) => {
         if (result) {
 
-            if (result.quantity < details.quantity && quantity <= 0) {
-                return response.status(400).send(`Insufficient quantity (${quantity}) of the requested 'good' with id: ${goodId} in storage. Requested: ${details.quantity}`);
+            if (result.stock < details.stock && stock <= 0) {
+                return response.status(400).send(`Insufficient stock (${stock}) of the requested 'good' with id: ${goodId} in storage. Requested: ${details.stock}`);
             }
 
-            // Update the quantity upon a successful purchase
+            // Update the stock upon a successful purchase
             Good.findByIdAndUpdate(
                 goodId,
                 {
-                    $inc: {"quantity": - details.quantity}
+                    $inc: {"stock": - details.stock}
                 },
                 (err, result) => {
                     if (err) {
                         return response.status(400).send(`No db entry in 'goods' for id: ${goodId}`);
                     }
-                    return response.status(200).send(`Successfully purchased a total of: ${details.quantity} goods of ID: ${goodId}.`);
+                    return response.status(200).send(`Successfully purchased a total of: ${details.stock} goods of ID: ${goodId}.`);
                 }
             );
 
