@@ -18,6 +18,22 @@
             "problemMatcher": [
                 "$eslint-stylish"
             ]
+        },
+        {
+            "label": "fill db",
+            "type": "shell",
+            "command": "cd shop-back && node fill_db.js",
+            "problemMatcher": [
+                "$eslint-stylish"
+            ]
+        },
+        {
+            "label": "front dev",
+            "type": "shell",
+            "command": "cd shop-front && npm run dev",
+            "problemMatcher": [
+                "$eslint-stylish"
+            ]
         }
     ]
 }

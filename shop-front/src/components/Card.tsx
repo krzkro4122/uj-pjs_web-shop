@@ -4,6 +4,7 @@ import {IGood} from "../interface";
 
 export interface CardProps {
   good: IGood,
+  quan: number,
   key: string
 }
 
@@ -23,11 +24,10 @@ const Card = (props: CardProps) => {
           <button onClick={
             () => {
               props.good.id = props.good.name;
-              props.good.price = props.good.cost;
 
               if (inCart(props.good.id)) {
                 const good: IGood = getItem(props.good.id);
-                good.quantity < props.good.stock ? updateItemQuantity(props.good.id, good.quantity + 1) : alert("None left!")
+                good.quantity! < props.good.stock ? updateItemQuantity(props.good.id, good.quantity + 1) : alert("None left!")
               } else {
                 const item = {
                   id: props.good.id,
@@ -42,7 +42,7 @@ const Card = (props: CardProps) => {
                 props.good.quantity = 1;
               }
             }
-          }><span className="border shadow-md rounded-md border-gray-400 p-1 hover:bg-gray-100 active:bg-gray-300">Buy</span> for ${props.good.cost}</button>
+          }><span className="border shadow-md rounded-md border-gray-400 p-1 hover:bg-gray-100 active:bg-gray-300">Buy</span> for ${props.good.price}</button>
           <span className='text-gray-500'>{props.good.stock} pcs.</span>
         </div>
     </div>

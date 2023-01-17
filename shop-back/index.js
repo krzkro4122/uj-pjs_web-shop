@@ -11,7 +11,10 @@ import Good from "./models/good.js";
 const app = express();
 app.use(express.static('dist'));
 app.use(express.json());
-app.use(cors());
+
+var corsOptions = {
+    origin: 'http://localhost:8080'
+}
 
 mongoose.connect(
     `mongodb://127.0.0.1:${dbo.port}/${dbo.collectionName}`,
@@ -23,7 +26,7 @@ app.listen(conf.port, () => {
 
 // Endpoints
 
-app.get('/goods', async (request, response) => {
+app.get('/goods', cors(corsOptions), async (request, response) => {
 
     console.log("Showing all goods...")
 
@@ -32,7 +35,7 @@ app.get('/goods', async (request, response) => {
     );
 });
 
-app.get('/goods/:goodId', async (request, response) => {
+app.get('/goods/:goodId', cors(corsOptions), async (request, response) => {
     const goodId = request.params.goodId;
 
     console.log(`Looking for a good of id: ${goodId}...`)
@@ -42,40 +45,44 @@ app.get('/goods/:goodId', async (request, response) => {
     );
 });
 
-app.post('/goods/buy', (request, response) => {
+app.post('/goods/buy', cors(corsOptions), (request, response) => {
     const details = request.body;
-    const goodId = details._id;
+    console.log(details)
+    details.forEach( (detail) => {
+        const goodId = detail._id;
+        // Check if you can even buy that many
+        Good.findOne({_id: ObjectId(goodId)}, (err, result) => {
+                if (result) {
+                    let stock = result.stock;
+                    console.log(stock, detail.quantity)
 
-    // Check if you can even buy that many
-    let stock = 0;
-    Good.findOne({_id: ObjectId(goodId)}, (err, result) => {
-        if (result) {
+                    if (stock < detail.quantity || stock <= 0) {
+                        return response.status(400).send(`Insufficient stock (${stock}) of the requested 'good' with id: ${goodId} in storage. Requested: ${detail.quantity}`);
+                    } else {
 
-            if (result.stock < details.stock && stock <= 0) {
-                return response.status(400).send(`Insufficient stock (${stock}) of the requested 'good' with id: ${goodId} in storage. Requested: ${details.stock}`);
-            }
-
-            // Update the stock upon a successful purchase
-            Good.findByIdAndUpdate(
-                goodId,
-                {
-                    $inc: {"stock": - details.stock}
-                },
-                (err, result) => {
-                    if (err) {
-                        return response.status(400).send(`No db entry in 'goods' for id: ${goodId}`);
+                        // Update the stock upon a successful purchase
+                        Good.findByIdAndUpdate(
+                            goodId,
+                            {
+                                "stock": result.stock - detail.quantity
+                            },
+                            (err, result) => {
+                                if (err) {
+                                    return response.status(400).send(`No db entry in 'goods' for id: ${goodId}. Error: ${err}`);
+                                }
+                            }
+                        );
                     }
-                    return response.status(200).send(`Successfully purchased a total of: ${details.stock} goods of ID: ${goodId}.`);
-                }
-            );
 
-        } else {
-            return response.status(400).send(`No db entry in 'goods' for id: ${goodId}`);
-        }
-    });
+                } else {
+                    return response.status(400).send(`No db entry in 'goods' for id: ${goodId}. Error: ${err} lol`);
+                }
+            });
+        });
+    return response.status(200).send(`Successfully purchased goods: ${details}`);
 });
 
-app.post('/goods/add', async (request, response) => {
+app.post('/goods/add', cors(corsOptions), async (request, response) => {
 
     console.log(`Looking for a good of id: ${goodId}...`)
 

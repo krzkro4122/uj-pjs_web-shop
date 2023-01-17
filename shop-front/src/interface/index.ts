@@ -7,8 +7,11 @@ export interface IGood extends Item {
   group: string;
   stock: number;
   thumbnail: string;
+  price: number;
+  quantity: number;
 }
 
 export type IShopContextState = {
   goods: IGood[];
+  setGoods: CallableFunction;
 }

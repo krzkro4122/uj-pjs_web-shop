@@ -12,7 +12,7 @@ export const ShopPane = (props: GoodsProps): JSX.Element => {
 
     return (
         <div className='p-2' key={1}>
-            {goods?.map((good: IGood) => <Card good={good} key={good.name+Date.now().toString()}/>)}
+            {goods?.map((good: IGood) => <Card good={good} quan={good.quantity} key={good.name+Date.now().toString()}/>)}
         </div>
     );
 };

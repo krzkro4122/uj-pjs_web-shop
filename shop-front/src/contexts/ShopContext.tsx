@@ -3,7 +3,8 @@ import { IGood, IShopContextState } from "../interface";
 import { fetchGoods } from "../api/goods"
 
 const defaultValue: IShopContextState = {
-  goods: []
+  goods: [],
+  setGoods: () => {}
 }
 
 interface Props {
@@ -17,6 +18,7 @@ export const ShopContextProvider: React.FC<Props> = ({ children }) => {
 
   const providerValue: IShopContextState = {
     goods: goods,
+    setGoods: setGoods,
   }
 
   useEffect(() => {

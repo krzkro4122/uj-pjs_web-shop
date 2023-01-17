@@ -7,10 +7,11 @@ const goodSchema = new Schema({
             unique: true,
             dropDups: true
     },
-    cost: Number,
+    price: Number,
     group: String,
     stock: Number,
-    thumbnail: String
+    thumbnail: String,
+    quantity: Number,
 });
 const Good = model("Good", goodSchema);
 

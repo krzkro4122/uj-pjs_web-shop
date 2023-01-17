@@ -21,13 +21,13 @@ function App() {
                 <Header>
                   <div className='flex justify-between'>
                     <Link to="/"><button className='rounded-md shadow-md hover:bg-gray-100 active:bg-gray-300 border-gray-400 border-2 p-2'><span>Goofy <b>ahh</b>™️ 🤓</span></button></Link>
-                    <Link to="/goods"><button className='rounded-md shadow-md hover:bg-gray-100 active:bg-gray-300 border-gray-400 border-2 p-2'>Browse 🔍</button></Link>
+                    <Link to="/browse"><button className='rounded-md shadow-md hover:bg-gray-100 active:bg-gray-300 border-gray-400 border-2 p-2'>Browse 🔍</button></Link>
                     <Link to="/cart"><button className='rounded-md shadow-md hover:bg-gray-100 active:bg-gray-300 border-gray-400 border-2 p-2'>Shopping Cart 🛒</button></Link>
                   </div>
                 </Header>
                 <Routes>
                   <Route path="/" element={<Welcome />}/>
-                  <Route path="goods" element={<ShopPane />}/>
+                  <Route path="browse" element={<ShopPane />}/>
                   <Route path="cart" element={<Cart />}/>
                 </Routes>
               </BrowserRouter>
